@@ -42,6 +42,26 @@ fuction saveSite() {
   return false;
 }
 
+function refreshSites(){
+  db.transaction(
+    transaction.executeSql(
+      'SELECT * FROM sites ORDER BY name;',
+      function(transaction, result){
+	for(var i=0; i < result.rows.length; i++){
+	  var row = results.rows.item(i);
+	  var newSiteRow = $('#siteTemplate').clone();
+	  newSiteRow.removeAttr('id');
+	  newEntryRow.removeAttr('style');
+	  newEntryRow.data('siteID', row.id);
+	  newEntryRow.appendTo('#home ul');
+	  newEntryRow.find('.label').text(row.name);
+	}
+      },
+      errorHandler
+    );
+  );
+}
+
 function errorHandler(transaction, error) {
   alert('Sorry, slight mixup ('+error.message+' ['+error.code+']');
   return true;
