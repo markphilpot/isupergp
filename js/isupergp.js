@@ -24,7 +24,7 @@ $(document).ready(function(){
   );
 });
 
-fuction saveSite() {
+function saveSite() {
   var site = $('#site').val();
   db.transaction(
     function(transaction){
