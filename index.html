@@ -6,7 +6,8 @@
     <link type="text/css" rel="stylesheet" media="screen" href="css/isupergp.css">
     <script type="text/javascript" src="jqtouch/jqtouch/jquery.1.3.2.min.js"></script>
     <script type="text/javascript" src="jqtouch/jqtouch/jqtouch.js"></script>
-    <script type="text/javascript" src="js/isupergp.js"></script> 
+    <script type="text/javascript" src="js/isupergp.js"></script>
+    <script type="text/javascript" src="js/sgp.js"></script>
   </head>
   <body>
     <div id="home">
@@ -17,15 +18,18 @@
       <ul>
         <li><input type="password" placeholder="Master Password" name="pwd" id="pwd" autocapitalize="off" autocorrect="off" autocomplete="off"/></li>
       </ul>
+      <h2>My Sites</h2>
+      <div id="mySites">
+        <ul class="rounded">
+          <li id="siteTemplate" class="entry" style="display:none">
+            <span class="label">Label</span>
+            <span class="delete">Delete</span>
+          </li>
+        </ul>
+      </div>
       <ul class="rounded">
-        <li id="siteTemplate" class="entry" style="display:none">
-          <span class="label">Label</span>
-          <span class="delete">Delete</span>
-        </li>
-      </ul>
-      <ul class="rounded">
-        <li><a class="button flip" href="#settings">Settings</a></li>
-        <li><a class="button flip" href="#about">About iSuperGP</a></li>
+        <li><a class="arrow flip" href="#settings">Settings</a></li>
+        <li><a class="arrow flip" href="#about">About iSuperGP</a></li>
       </ul>
     </div> <!-- /home -->
 

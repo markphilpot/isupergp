@@ -36,7 +36,7 @@ function saveSite() {
 }
 
 function refreshSites() {
-    $('#home ul li:gt(0)').remove();
+    $('#mySites ul li:gt(0)').remove();
     db.transaction(function(transaction) {
         transaction.executeSql('SELECT * FROM sites ORDER BY name;', null,
                 function(transaction, result) {
