@@ -2,7 +2,7 @@ var db;
 
 var jQT = $.jQTouch({
   icon: 'kilo.png',
-  statusBar: 'black'
+  statusBar: 'black-translucent'
 });
 
 $(document).ready(function(){
@@ -22,6 +22,7 @@ $(document).ready(function(){
       );
     }
   );
+  refreshSites();
 });
 
 function saveSite() {
@@ -51,7 +52,7 @@ function refreshSites(){
 	null,
 	function(transaction, result){
 	  for(var i=0; i < result.rows.length; i++){
-	    var row = results.rows.item(i);
+	    var row = result.rows.item(i);
 	    var newSiteRow = $('#siteTemplate').clone();
 	    newSiteRow.removeAttr('id');
 	    newSiteRow.removeAttr('style');
