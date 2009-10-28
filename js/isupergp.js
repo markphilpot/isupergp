@@ -44,7 +44,7 @@ function refreshSites() {
                         var row = result.rows.item(i);
                         var newSiteRow = $('#siteTemplate').clone();
                         newSiteRow.removeAttr('id');
-                        newSiteRow.removeAttr('style');
+                        //newSiteRow.removeAttr('style');
                         newSiteRow.data('siteID', row.id);
                         newSiteRow.appendTo('#mySites ul');
                         newSiteRow.find('.label').text(row.name);
