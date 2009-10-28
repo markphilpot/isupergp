@@ -46,7 +46,7 @@ function refreshSites() {
                         newSiteRow.removeAttr('id');
                         newSiteRow.removeAttr('style');
                         newSiteRow.data('siteID', row.id);
-                        newSiteRow.appendTo('#home ul');
+                        newSiteRow.appendTo('#mySites ul');
                         newSiteRow.find('.label').text(row.name);
                         newSiteRow.find('.delete').click(function() {
                             var clickedSite = $(this).parent();
