@@ -1,2 +1,4 @@
 /trac-repository/log
 *~
+.project
+.settings
