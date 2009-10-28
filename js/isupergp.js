@@ -44,28 +44,30 @@ function saveSite() {
 
 function refreshSites(){
   db.transaction(
-    transaction.executeSql(
-      'SELECT * FROM sites ORDER BY name;',
-      null,
-      function(transaction, result){
-	for(var i=0; i < result.rows.length; i++){
-	  var row = results.rows.item(i);
-	  var newSiteRow = $('#siteTemplate').clone();
-	  newSiteRow.removeAttr('id');
-	  newSiteRow.removeAttr('style');
-	  newSiteRow.data('siteID', row.id);
-	  newSiteRow.appendTo('#home ul');
-	  newSiteRow.find('.label').text(row.name);
-	  newSiteRow.find('.delete').click(function(){
-	    var clickedSite = $(this).parent();
-	    var clickedSiteID = clickdSite.data('siteID');
-	    deleteSiteByID(clickedSiteID);
-	    clickedEntry.slideUp();
-	  });
-	}
-      },
-      errorHandler
-    );
+    function(transaction){
+      transaction.executeSql(
+	'SELECT * FROM sites ORDER BY name;',
+	null,
+	function(transaction, result){
+	  for(var i=0; i < result.rows.length; i++){
+	    var row = results.rows.item(i);
+	    var newSiteRow = $('#siteTemplate').clone();
+	    newSiteRow.removeAttr('id');
+	    newSiteRow.removeAttr('style');
+	    newSiteRow.data('siteID', row.id);
+	    newSiteRow.appendTo('#home ul');
+	    newSiteRow.find('.label').text(row.name);
+	    newSiteRow.find('.delete').click(function(){
+	      var clickedSite = $(this).parent();
+	      var clickedSiteID = clickdSite.data('siteID');
+	      deleteSiteByID(clickedSiteID);
+	      clickedEntry.slideUp();
+	    });
+	  }
+	},
+	errorHandler
+      );
+    }
   );
 }
 
