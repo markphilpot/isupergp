@@ -43,6 +43,7 @@ function saveSite() {
 }
 
 function refreshSites(){
+  $('#home ul li:gt(0)').remove();
   db.transaction(
     function(transaction){
       transaction.executeSql(
