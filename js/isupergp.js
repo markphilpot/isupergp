@@ -61,9 +61,9 @@ function refreshSites(){
 	    newSiteRow.find('.label').text(row.name);
 	    newSiteRow.find('.delete').click(function(){
 	      var clickedSite = $(this).parent();
-	      var clickedSiteID = clickdSite.data('siteID');
+	      var clickedSiteID = clickedSite.data('siteID');
 	      deleteSiteByID(clickedSiteID);
-	      clickedEntry.slideUp();
+	      clickedSite.slideUp();
 	    });
 	  }
 	},
