@@ -14,25 +14,67 @@
 	<h1>iSuperGP</h1>
 	<a class="button flip" href="#addSite">Add</a>
       </div>
+      <ul>
+        <li><input type="password" placeholder="Master Password" name="pwd" id="pwd" autocapitalize="off" autocorrect="off" autocomplete="off"/></li>
+      </ul>
       <ul class="rounded">
-	<li id="siteTemplate" class="entry" style="display:none">
-	  <span class="label">Label</span>
-	  <span class="delete">Delete</span>
-	</li>
+        <li id="siteTemplate" class="entry" style="display:none">
+          <span class="label">Label</span>
+          <span class="delete">Delete</span>
+        </li>
+      </ul>
+      <ul class="rounded">
+        <li><a class="button flip" href="#settings">Settings</a></li>
+        <li><a class="button flip" href="#about">About iSuperGP</a></li>
       </ul>
     </div> <!-- /home -->
 
     <div id="addSite">
       <div class="toolbar">
          <h1>Add Site</h1>
-	 <a class="button back" href="#">Cancel</a>
+         <a class="button back" href="#">Cancel</a>
       </div>
       <form method="post">
       	<ul>
-	   <li><input type="text" placeholder="Site" name="site" id="site" autocapitalize="off" autocorrect="off" autocomplete="off" /></li>
-	   <li><input type="submit" class="submit" name="action" value="Save" /></li>
-	</ul>
+         <li><input type="text" placeholder="Site" name="site" id="site" autocapitalize="off" autocorrect="off" autocomplete="off" /></li>
+         <li><input type="submit" class="submit" name="action" value="Save" /></li>
+        </ul>
       </form>
+    </div> <!-- /addSite -->
+    
+    <div id="genPassword">
+      <div class="toolbar">
+        <h1>Password</h1>
+        <a class="button back" href="#">Back</a>
+      </div>
+      <ul>
+        <li><input type="text" placeholder="Generated Password" name="genPass" id="genPass"/></li>
+      </ul>
+    </div> <!-- /genPassword -->
+    
+    <div id="settings">
+      <div class="toolbar">
+        <h1>Settings</h1>
+        <a class="button back" href="#">Cancel</a>
+      </div>
+      <form method="post">
+        <ul>
+          <li><input type="text" placeholder="Length" size="4" maxlength="4" name="passwordLength" id="passwordLength"/></li>
+          <li><input type="checkbox" name="disableSubdomainRemoval" id="disableSubdomainRemoval" value="true"/></li>
+        </ul>
+      </form>
+    </div> <!-- /settings -->
+    
+    <div id="about">
+      <div class="toolbar">
+        <h1>About</h1>
+        <a class="button back" href="#">Back</a>
+      </div>
+      <div>
+        <p>A SuperGenPass Application for the iPhone</p>
+        <p>Support @ <a href="http://www.isupergp.com/trac">www.isupergp.com/trac</a></p>
+        <p><a href="http://www.mcstudios.net">MC Studios</a></p>
+      </div>
     </div>
   </body>
 </html>
