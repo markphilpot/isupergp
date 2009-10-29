@@ -47,9 +47,9 @@ function refreshSites() {
                         newSiteRow.css('display','block');
                         newSiteRow.data('siteID', row.id);
                         newSiteRow.appendTo('#mySites ul');
-                        newSiteRow.find('.label').text(row.name);
+                        newSiteRow.find('.site').text(row.name);
                         
-                        newSiteRow.find('.label').click(function(){
+                        newSiteRow.find('.site').click(function(){
                             var clickedSite = $(this).parent();
                             var clickedSiteID = clickedSite.data('siteID');
                             db.transaction(function(transaction){
