@@ -48,6 +48,26 @@ function refreshSites() {
                         newSiteRow.data('siteID', row.id);
                         newSiteRow.appendTo('#mySites ul');
                         newSiteRow.find('.label').text(row.name);
+                        
+                        newSiteRow.find('.label').click(function(){
+                            var clickedSite = $(this).parent();
+                            var clickedSiteID = clickedSite.data('siteID');
+                            transaction.executeSql('SELECT * FROM sites WHERE id = ?;', [clickedSiteID],
+                                    function(transaction, result){
+                                        var row = result.rows.item(0);
+                                        var domain = row.name;
+                                        var masterPwd = $('#pwd').val();
+                                        var disableTLD = localStorage.disableSubdomainRemoval;
+                                        var length = localStorage.passwordLength;
+                                        if(masterPwd&&domain){
+                                            domain = gp2_process_uri(domain, disableTLD);
+                                            $('#genPass').val(gp2_generate_passwd(masterPwd+':'+domain,length));
+                                            jQT.goTo('#genPassword', 'flip');
+                                        }
+                                    },
+                                    errorHandler);
+                        });
+                        
                         newSiteRow.find('.delete').click(function() {
                             var clickedSite = $(this).parent();
                             var clickedSiteID = clickedSite.data('siteID');
