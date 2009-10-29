@@ -15,3 +15,19 @@
     border-width: 0 5px;
     -webkit-border-image: url(../jqtouch/themes/jqt/img/button.png) 0 5 0 5;
 } 
+
+#about {
+    padding: 100px 10px 40px;
+    text-shadow: rgba(0, 0, 0, 0.3) 0px -1px 0;
+    font-size: 13px;
+    text-align: center;
+    background: #161618;
+}
+#about p {
+    margin-bottom: 8px;
+}
+#about a {
+    color: #aaa;
+    font-weight: bold;
+    text-decoration: none;
+}

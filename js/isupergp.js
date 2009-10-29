@@ -1,7 +1,7 @@
 var db;
 
 var jQT = $.jQTouch( {
-    icon : 'kilo.png',
+    icon : 'images/super.png',
     statusBar : 'black-translucent'
 });
 
@@ -63,13 +63,13 @@ function refreshSites() {
                                         if(masterPwd&&domain){
                                             domain = gp2_process_uri(domain, disableTLD);
                                             $('#genPass').val(gp2_generate_passwd(masterPwd+':'+domain,length));
-                                            jQT.goTo('#genPassword', 'flip');
+                                            jQT.goTo('#genPassword', 'slide');
                                         }
                                     },
                                     errorHandler);
                             });
                         });
-                        
+                        /*
                         newSiteRow.swipe(function(event, data){
                             $(this).find('.delete').click(function(){
                                 var clickedSite = $(this).parent();
@@ -78,14 +78,13 @@ function refreshSites() {
                                 clickedSite.slideUp();
                             });
                         });
-                        /*
+                        */
                         newSiteRow.find('.delete').click(function() {
                             var clickedSite = $(this).parent();
                             var clickedSiteID = clickedSite.data('siteID');
                             deleteSiteByID(clickedSiteID);
                             clickedSite.slideUp();
                         });
-                        */
                     }
                 }, errorHandler);
     });
