@@ -52,7 +52,8 @@ function refreshSites() {
                         newSiteRow.find('.label').click(function(){
                             var clickedSite = $(this).parent();
                             var clickedSiteID = clickedSite.data('siteID');
-                            transaction.executeSql('SELECT * FROM sites WHERE id = ?;', [clickedSiteID],
+                            db.transaction(function(transaction){
+                                transaction.executeSql('SELECT * FROM sites WHERE id = ?;', [clickedSiteID],
                                     function(transaction, result){
                                         var row = result.rows.item(0);
                                         var domain = row.name;
@@ -66,6 +67,7 @@ function refreshSites() {
                                         }
                                     },
                                     errorHandler);
+                            });
                         });
                         
                         newSiteRow.find('.delete').click(function() {
