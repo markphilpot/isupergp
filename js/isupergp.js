@@ -70,12 +70,22 @@ function refreshSites() {
                             });
                         });
                         
+                        newSiteRow.swipe(function(event, data){
+                            $(this).find('.delete').click(function(){
+                                var clickedSite = $(this).parent();
+                                var clickedSiteID = clickedSite.data('siteID');
+                                deleteSiteByID(clickedSiteID);
+                                clickedSite.slideUp();
+                            });
+                        });
+                        /*
                         newSiteRow.find('.delete').click(function() {
                             var clickedSite = $(this).parent();
                             var clickedSiteID = clickedSite.data('siteID');
                             deleteSiteByID(clickedSiteID);
                             clickedSite.slideUp();
                         });
+                        */
                     }
                 }, errorHandler);
     });
