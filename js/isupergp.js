@@ -1,7 +1,7 @@
 var db;
 
 var jQT = $.jQTouch( {
-    icon : 'images/super.png',
+    icon : 'images/superman-logo-cropped.png',
     statusBar : 'black-translucent'
 });
 
