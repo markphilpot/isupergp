@@ -117,6 +117,6 @@ function loadSettings(){
 function saveSettings(){
     localStorage.passwordLength = $('#passwordLength').val();
     localStorage.disableSubdomainRemoval = $('#disableSubdomainRemoval').val();
-    jQT.boBack();
+    jQT.goBack();
     return false;
 }
