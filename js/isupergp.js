@@ -59,7 +59,7 @@ function refreshSites() {
                                         var row = result.rows.item(0);
                                         var domain = row.name;
                                         var masterPwd = $('#pwd').val();
-                                        var disableTLD = localStorage.disableSubdomainRemoval;
+                                        var disableTLD = localStorage.subdomainRemoval;
                                         var length = localStorage.passwordLength;
                                         if(masterPwd&&domain){
                                             domain = gp2_process_uri(domain, !disableTLD); // inverted domain removal logic for UI consistency
@@ -106,17 +106,18 @@ function errorHandler(transaction, error) {
 function loadSettings(){
     // Check for init
     if(!localStorage.passwordLength)
+    {
         localStorage.passwordLength = 16;
-    if(!localStorage.disableSubdomainRemoval)
-        localStorage.disableSubdomainRemoval = true;
+        localStorage.subdomainRemoval = true;
+    }
     
     $('#passwordLength').val(localStorage.passwordLength);
-    $('#disableSubdomainRemoval').val(localStorage.disableSubdomainRemoval)
+    $('#subdomainRemoval').val(localStorage.subdomainRemoval)
 }
 
 function saveSettings(){
     localStorage.passwordLength = $('#passwordLength').val();
-    localStorage.disableSubdomainRemoval = $('#disableSubdomainRemoval').val();
+    localStorage.subdomainRemoval = $('#subdomainRemoval').val();
     jQT.boBack();
     return false;
 }
