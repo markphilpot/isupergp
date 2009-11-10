@@ -63,24 +63,49 @@
       </div>
       <form method="post">
         <ul>
-          <li>Password Length <input type="text" placeholder="Length" size="4" maxlength="4" name="passwordLength" id="passwordLength"/></li>
-          <li><input type="checkbox" name="disableSubdomainRemoval" id="disableSubdomainRemoval" value="true"/> Disable subdomain removal</li>
+          <li>Password Length</li>
+          <li>
+            <select id="passwordLength">
+                    <option value ="4">4</option>
+                    <option value ="5">5</option>
+                    <option value ="6">6</option>
+                    <option value ="7">7</option>
+                    <option value ="8">8</option>
+                    <option value ="9">9</option>
+                    <option value ="10">10</option>
+                    <option value ="11">11</option>
+                    <option value ="12">12</option>
+                    <option value ="13">13</option>
+                    <option value ="14">14</option>
+                    <option value ="15">15</option>
+                    <option value ="16">16</option>
+                    <option value ="17">17</option>
+                    <option value ="18">18</option>
+                    <option value ="19">19</option>
+                    <option value ="20">20</option>
+                    <option value ="21">21</option>
+                    <option value ="22">22</option>
+                    <option value ="23">23</option>
+                    <option value ="24">24</option>
+            </select>
+          </li>
+          <li>Disable Subdomain Removal</li>
+          <li><span class="toggle"><input type="checkbox" name="disableSubdomainRemoval" id="disableSubdomainRemoval" value="true"/></span></li>
         </ul>
       </form>
     </div> <!-- /settings -->
     
     <div id="about" class="selectable">
-      <div>
-        <p><img src="images/super.png" /></p>
+        <p><img src="images/superman-logo-large.png" /></p>
         <p><strong>iSuperGP</strong><br />Version 0.x<br />
             <a href="http://www.mcstudios.com">MC Studios</a></p>
-        <p><em>Powered by<br /> www.supergenpass.com.</em></p>
+        <p><em>Powered by<br />www.supergenpass.com.</em></p>
         <p>
-            <a href="http://www.supergenpass.com" target="_blank">supergenpass</a>
             <a href="http://www.isupergp.com/trac" target="_blank">support @ www.isupergp.com/trac</a>
         </p>
         <p><br /><br /><a href="#" class="grayButton goback">Close</a></p>
-      </div>
-    </div>
+    </div> <!-- /about -->
+    
   </body>
 </html>
+6
