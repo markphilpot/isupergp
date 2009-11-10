@@ -2,11 +2,8 @@
     position: relative;
 }
 #home ul li .site {
-    text-shadow: 0px 0px 0px rgba(0,0,0,1);
-}
-#home ul li span {
     color: #000;
-    text-shadow: rgba(10,10,10,.7) 0 1px 2px;
+    text-shadow: none;
 }
 #home ul li .delete {
     color: #fff;
