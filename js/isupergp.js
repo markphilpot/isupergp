@@ -62,7 +62,7 @@ function refreshSites() {
                                         var disableTLD = localStorage.disableSubdomainRemoval;
                                         var length = localStorage.passwordLength;
                                         if(masterPwd&&domain){
-                                            domain = gp2_process_uri(domain, disableTLD);
+                                            domain = gp2_process_uri(domain, !disableTLD); // inverted domain removal logic for UI consistency
                                             $('#genPass').val(gp2_generate_passwd(masterPwd+':'+domain,length));
                                             jQT.goTo('#genPassword', 'slide');
                                         }
@@ -108,7 +108,7 @@ function loadSettings(){
     if(!localStorage.passwordLength)
         localStorage.passwordLength = 16;
     if(!localStorage.disableSubdomainRemoval)
-        localStorage.disableSubdomainRemoval = false;
+        localStorage.disableSubdomainRemoval = true;
     
     $('#passwordLength').val(localStorage.passwordLength);
     $('#disableSubdomainRemoval').val(localStorage.disableSubdomainRemoval)
