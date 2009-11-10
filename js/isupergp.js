@@ -112,12 +112,12 @@ function loadSettings(){
     }
     
     $('#passwordLength').val(localStorage.passwordLength);
-    $('#subdomainRemoval').val(localStorage.subdomainRemoval)
+    $('#subdomainRemoval').attr('checked', localStorage.subdomainRemoval);
 }
 
 function saveSettings(){
     localStorage.passwordLength = $('#passwordLength').val();
-    localStorage.subdomainRemoval = $('#subdomainRemoval').val();
+    localStorage.subdomainRemoval = $('#subdomainRemoval').attr('checked');
     jQT.goBack();
     return false;
 }
