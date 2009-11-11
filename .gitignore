@@ -2,3 +2,4 @@
 *~
 .project
 .settings
+/trac-repository/.htpasswd
