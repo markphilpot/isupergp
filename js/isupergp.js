@@ -107,7 +107,7 @@ function loadSettings(){
     // Check for init
     if(!localStorage.passwordLength)
     {
-        localStorage.passwordLength = 16;
+        localStorage.passwordLength = 10; // Match SGP default
         localStorage.subdomainRemoval = true;
     }
     
