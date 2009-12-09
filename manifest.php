@@ -14,7 +14,8 @@ foreach(new RecursiveIteratorIterator($dir) as $file)
        substr($file->getFilename(), 0, 1) != "." && 
        !preg_match("/trac/", $file) && 
        !preg_match("/git/", $file) &&
-       !preg_match("/psd/", $file))
+       !preg_match("/psd/", $file) &&
+       !preg_match("/demos/", $file))
     {
         echo $file . "\n";
         $hashes .= md5_file($file);
