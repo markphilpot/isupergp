@@ -2,7 +2,7 @@ var db;
 
 var jQT = $.jQTouch( {
     icon : 'superman-logo-cropped.png',
-    statusBar : 'black-translucent',
+    statusBar : 'black',
     startupScreen: 'loading.png'
 });
 
