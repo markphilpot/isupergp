@@ -3,15 +3,14 @@ var db;
 var jQT = $.jQTouch( {
     icon : 'images/superman-logo-cropped.png',
     statusBar : 'black-translucent',
-    startupScreen: 'images/superman-logo-large.png'
+    startupScreen: 'images/loading.png'
 });
 
-$(document).ready(
-    function() {
+$(document).ready(function() {
         $('#addSite form').submit(saveSite);
         $('#settings form').submit(saveSettings);
         $('#settings').bind('pageAnimationStart', loadSettings);
-        
+
         var shortName = 'iSuperGP';
         var version = '0.1';
         var displayName = 'iSuperGP';
@@ -22,7 +21,7 @@ $(document).ready(
             transaction.executeSql('CREATE TABLE IF NOT EXISTS sites (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL);');
         });
         refreshSites();
-    });
+});
 
 function saveSite() {
     var site = $('#site').val();
@@ -49,7 +48,7 @@ function refreshSites() {
                         newSiteRow.data('siteID', row.id);
                         newSiteRow.appendTo('#mySites ul');
                         newSiteRow.find('.site').text(row.name);
-                        
+
                         newSiteRow.find('.site').click(function(){
                             var clickedSite = $(this).parent();
                             var clickedSiteID = clickedSite.data('siteID');
@@ -110,7 +109,7 @@ function loadSettings(){
         localStorage.passwordLength = 10; // Match SGP default
         localStorage.subdomainRemoval = true;
     }
-    
+
     $('#passwordLength').val(localStorage.passwordLength);
     $('#subdomainRemoval').attr('checked', localStorage.subdomainRemoval);
 }
