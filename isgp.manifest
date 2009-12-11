@@ -49,12 +49,13 @@ CACHE MANIFEST
 ./jqtouch/themes/jqt/theme.css
 ./jqtouch/themes/jqt/theme.min.css
 ./index.html
-./js/isupergp.js
 ./js/sgp.js
 ./css/isupergp.css
 ./images/source/superman-logo.jpg
 ./images/superman-logo-cropped.png
 ./images/superman-logo-expanded.png
 ./images/superman-logo-large.png
+./images/loading.png
 ./isgp.manifest
-# Hash: 39895cc337b77d3f21557df084424ed6
+./isupergp.js
+# Hash: ee54af1fd05954f7733bb47d7028829d

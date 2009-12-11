@@ -1,0 +1,115 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:py="http://genshi.edgewall.org/">
+
+  <xi:include href="admin.html" />
+
+  <head>
+    <title>Delete Ticket${ticketdelete.page=='comments' and ' Changes' or None}</title>
+  </head>
+
+  <body>
+
+    <h2>
+      Delete Ticket${ticketdelete.page=='comments' and ' Changes' or None}
+      <a py:if="ticketdelete.id" href="${req.href('ticket', ticketdelete.id)}">
+        #${ticketdelete.id}
+      </a>
+    </h2>
+
+  <py:choose>
+    <py:when test="ticketdelete.page == 'delete'">
+      <p>
+        <b>Note: 
+          It is usually a better idea to resolve a ticket as invalid, than to
+          remove it from the database.</b>
+      </p>
+
+      <form method="post">
+        Ticket ID: <input type="text" name="ticketid" value="${ticketdelete.id}"/><br />
+          <input type="submit" value="Delete" />
+      </form>
+
+    </py:when>
+    <py:when test="ticketdelete.page == 'comments'">
+      <py:choose>
+        <py:when test="len(ticketdelete.changes)">
+          <p py:if="ticketdelete.message">
+            <b>${ticketdelete.message}</b>
+          </p>
+          <p>Please select a change to delete</p>
+        
+          <p><form method="post"><table class="listing">
+            <thead><tr><th class="sel" /><th>Field</th><th>Old Value</th><th>New Value</th><th /></tr></thead>
+            <tbody>
+              <py:for each="change in sorted(ticketdelete.changes.keys())">
+                <tr>
+                  <td><input type="checkbox" name="dontcare" value="dontcare" id="checkbox_${change}" checked="${change.checked or None}" /></td>
+                  <td colspan="3"><b>Change at ${ticketdelete.changes[change].prettytime} by ${ticketdelete.changes[change].author}</b></td>
+                  <td><input type="submit" name="delete_${change}" value="Delete change" /></td>
+                  <tr>
+                    <py:for each="field in ticketdelete.changes[change].fields">
+                      <tr>
+                        <td><input type="checkbox" id="checkbox${field}_${change}" name="mdelete" value="${field}_${change}" checked="${ticketdelete.changes[change].checked or None}" /></td>
+                        <td>${field}</td>
+                        <td>${ticketdelete.changes[change].fields[field].old}</td>
+                        <td>${ticketdelete.changes[change].fields[field].new}</td>
+                        <td><input type="submit" name="delete${field}_${change}" value="Delete field" /></td>
+                      </tr>
+                    </py:for>
+                  </tr>
+                </tr>
+              </py:for>
+            </tbody>
+        </table><br /><input type="submit" name="multidelete" value="Delete Checked" /></form></p>
+        
+        <script type="text/javascript">
+        <!--
+            function toggleboxen(me, boxen) 
+            {
+                status = document.getElementById("checkbox_" + me).checked;
+                boxen.pop() // Remove the last (blank) entry.
+                for (box in boxen) {
+                    //alert("Changing checkbox"+boxen[box]+"_"+me);
+                    document.getElementById("checkbox"+boxen[box]+"_"+me).checked = status;
+                }
+            }
+            
+            <py:for each="change in ticketdelete.changes">
+            addEvent(document.getElementById("checkbox_${change}"), "change", function() {
+                var boxen = Array(${py:for each="field in change.fields"${field}",</py:for>"");
+                toggleboxen("${change}", boxen); //Array(<py:for each="field in change.fields">"${field}",</py:for>));
+            });
+            <py:for each="field in change.fields">
+              addEvent(document.getElementById("checkbox${field}_${change}"),"change", function() {
+                  if(!document.getElementById("checkbox${field}_${change}").checked) {
+                  document.getElementById("checkbox${change}").checked = 0;
+                }
+            });
+            </py:for>
+            </py:for>
+
+
+        //-->
+        </script>
+
+
+        <br />
+        <a href="${ticketdelete.href}">Back</a>
+      </py:when>
+      <py:otherwise>
+        <form method="post">
+          <p>Select a ticket ID to change.</p>
+          <p>Ticket ID: <input type="text" name="ticketid" /><br />
+            <input type="submit" value="Submit" />
+          </p>
+        </form>
+      </py:otherwise>
+      </py:choose>
+    </py:when>
+  </py:choose>
+  </body>
+</html>
