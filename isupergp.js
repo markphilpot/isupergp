@@ -1,9 +1,9 @@
 var db;
 
 var jQT = $.jQTouch( {
-    icon : 'images/superman-logo-cropped.png',
+    icon : 'superman-logo-cropped.png',
     statusBar : 'black-translucent',
-    startupScreen: 'images/loading.png'
+    startupScreen: 'loading.png'
 });
 
 $(document).ready(function() {
