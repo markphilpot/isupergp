@@ -1,6 +1,6 @@
 var db;
 
-var jQT = $.jQTouch( {
+var jQT = new $.jQTouch( {
     icon : 'superman-logo-cropped.png',
     statusBar : 'black',
     startupScreen: 'loading.png'
